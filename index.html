@@ -3,10 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="app.js"></script>
-    <title>Stop Watch</title>
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script> -->
     
+   
+    <title>Stop Watch</title>
+    <style>
+        html{
+            height: 100%;
+            width: 100%;
+            font-family: "Poppins", sans-serif;
+        }
+        body{
+            background-image: url( https://is1-ssl.mzstatic.com/image/thumb/Purple118/v4/00/87/d0/0087d081-4e07-93d5-1d08-b28eee0eb747/App_Icon_-_Small-marketing.lsr/1024x1024bb.jpg) ;
+            height: 100%;
+            width: 100%;
+            /* display: flex;  */
+        /* justify-content: center; */
+            /* align-items: center; */
+            background-color: #f4d4c9;
+            text-align: center;
+             /* display: inline-block; */
+             background-size: 100% 100%;
+             background-attachment: fixed;
+
+        }
+        @media only  screen and (max-width: 640px) {
+             .head{
+                margin-top:150px !important;
+      font-size:38pt !important ;
+      width: 200px !important;
+             }
+        }
+        .show{
+    display: inline-block;
+    width:100px;
+    height: 100px;
+    background-color:#D4AF37;
+    border-radius: 50px;
+    border: 2px solid #8B4513;
+    box-shadow: 10px solid 	#800000;
+    text-align: center;
+    /* margin-top: 10px;
+ */
+}
+@media only screen and (max-width: 420px) {
+    .show{
+      width: 70px;
+      height: 70px;
+      padding-bottom:16px !important;;
+      font-size: 26pt;
+ 
+    
+    }
+     }
+@media only screen and (max-width: 420px) {
+    .name{
+      width:70px !important;
+      font-size: 8pt !important;
+     }
+     }
+
+.name{
+    display: inline-block;
+    width:100px;
+    text-align: center;
+    color:#800000;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12pt;
+    background-color: goldenrod;
+    
+}
+.control{
+    background-color: #800000;
+    color:white;
+    border-radius: 20px;
+    height:40px;
+    width: 100px;
+    font-size: 20px;
+    color: goldenrod;
+            background-color: #800000; 
+}
+.control:hover{
+            color: yellow;
+            background-color: #f4d4c9;
+        }
+@media only screen and (max-width: 400px) {
+    .control{
+      width:70px !important;
+      font-size: 12pt !important;
+      height:30px;
+     }
+     }
+    
+            h1{
+            display: inline-block;
+            width: 50px;
+            /* background: #800000; */
+            /* color: goldenrod; */
+
+        }
+        .head{
+    
+    color:#800000;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-size: 44pt; */
+    width:250px;
+    text-align: center;
+    border-radius:0px 50px 0px 50px ;
+    /* background-color: goldenrod; */
+    margin-top: 50px !important;
+}
+      
+        .screen{
+            margin: 0;
+            /* background-color: #cfcfcf;
+            color: blue;
+            /* font-size: 64px; */
+            border-radius: 5px;
+            padding: 10px;
+            cursor: default;
+            user-select: none;
+        }
+       
+        .buttons{
+            /* display: flex; */
+            margin: 10px 5px 0;
+            
+        }
+        .buttons button{
+            /* flex: 1; */
+            margin: 0 5px;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            /* color: blue;
+            background-color:#00ADB5; */
+            outline: none;
+            cursor: pointer;
+            display: inline;
+
+        }
+        .buttons button:hover{
+            color: yellow;
+            background-color: blue; 
+        }
+ </style>
+    </head>
+<body  >
+    <div class="screen">
+    <div id="div" class="container mt-5">
+        <span>
+            <h1 class="head pt-5 pb-3 m-auto" >
+                StopWatch
+            </h1>
+        </span>
+        <div class="mt-3">
+            <!-- <h1 class="show pt-3" id="hour">0</h1> -->
+            <h1 class="show pt-3" id="min">0</h1>
+            <h1 class="show pt-3" id="sec">0</h1>
+            <h1 class="show pt-3" id="msec">0</h1>
+            <br>
+            <!-- <button class="name">Hours</button> -->
+            <button  class="name">Minutes</button>
+            <button  class="name">Seconds</button>
+            <button  class="name" >Miliseconds</button>
+        </div>
+        <div class="mt-3">
+            <button class="control mt-3" onclick="start()"><i class="fa fa-play"></i></button>
+        <button class="control mt-3" onclick="stop()"><i class="fa fa-stop"></i></button>
+        <button class="control mt-3" onclick="reset()"><i class="fa fa-refresh"></i></button>
+        </div>
+    </div>
+</div>
+    
+
+      
+
+    <!-- <div class="container  mt-5 begimg">
+    <div>
+        <h2 class="pt-3 pb-3 m-auto">STOPWATCH</h2>
+    </div>
+    <div>
+        <div class="screen">
+       
+        <h1 id="min">0</h1>
+        <h1 id="sec">0</h1>
+        <h1 id="msec">0</h1>
+    </div> </div>
+    
+    <div class="buttons">
+        <button  onclick="start()"><i class="fa fa-play"></i></button>
+        <button onclick="stop()"><i class="fa fa-stop"></i></button>
+        <button onclick="reset()"><i class="fa fa-refresh"></i></button>
+    </div> </div> </div> -->
 </body>
+
+
+<script src="script.js"></script>
+       
+
 </html>
